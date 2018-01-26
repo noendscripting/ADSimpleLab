@@ -25,9 +25,6 @@
   <Import Condition=" Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Deployment\1.1\DeploymentProject.targets') " Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Deployment\1.1\DeploymentProject.targets" />
   <!-- vertag<:>end -->
   <ItemGroup>
-    <Folder Include="Templates\" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="CustomScripts\Groups.csv" />
     <Content Include="CustomScripts\Import.ps1" />
     <Content Include="CustomScripts\Members.csv" />
@@ -38,6 +35,9 @@
     <Content Include="Templates\azuredeploy.parameters.json" />
     <Content Include="DSC\ConfigDataAD.psd1" />
     <Content Include="DSC\DCConfig.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\metadata.json" />
   </ItemGroup>
   <Target Name="GetReferenceAssemblyPaths" />
 </Project>
