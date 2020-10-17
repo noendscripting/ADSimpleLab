@@ -346,34 +346,34 @@
             ]
           }
         }
-        //"resources": [
-        //  // Join domain - Json AD Domain Extension
-        //  {
-        //    "comments": "Join domain - JsonADDomainExtension",
-        //    "apiVersion": "2015-06-15",
-        //    "type": "extensions",
-        //    "name": "joindomain",
-        //    "location": "[resourceGroup().location]",
-        //    "dependsOn": [
-        //      "[concat('Microsoft.Compute/virtualMachines/',variables('VMNames')[0])]",
-        //      "[concat('Microsoft.Compute/virtualMachines/', variables('VMNames')[4],'/extensions/DCConfig')]"
-        //    ],
-        //    "properties": {
-        //      "publisher": "Microsoft.Compute",
-        //      "type": "JsonADDomainExtension",
-        //      "typeHandlerVersion": "1.0",
-        //      "settings": {
-        //        "Name": "[variables('domainFQDN')]",
-        //        "User": "[concat(variables('domainFQDN'),'\\',parameters('AdminUserName'))]",
-        //        "Restart": "true",
-        //        "Options": "[variables('domainJoinOptions')]"
-        //      },
-        //      "protectedsettings": {
-        //        "Password": "[parameters('AdminPassword')]"
-        //      }
-        //    }
-        //  },
-        //  // Setup IIS - Powershell DSC
+        "resources": [
+        // Join domain - Json AD Domain Extension
+           {
+            "comments": "Join domain - JsonADDomainExtension",
+            "apiVersion": "2015-06-15",
+            "type": "extensions",
+            "name": "joindomain",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+              "[concat('Microsoft.Compute/virtualMachines/',variables('VMNames')[0])]",
+              "[concat('Microsoft.Compute/virtualMachines/', variables('VMNames')[4],'/extensions/DCConfig')]"
+            ],
+            "properties": {
+              "publisher": "Microsoft.Compute",
+              "type": "JsonADDomainExtension",
+              "typeHandlerVersion": "1.0",
+              "settings": {
+                "Name": "[variables('domainFQDN')]",
+                "User": "[concat(variables('domainFQDN'),'\\',parameters('AdminUserName'))]",
+                "Restart": "true",
+                "Options": "[variables('domainJoinOptions')]"
+              },
+              "protectedsettings": {
+                "Password": "[parameters('AdminPassword')]"
+              }
+            }
+          }//,
+          // Setup IIS - Powershell DSC
         //  {
         //    "name": "IISConfig",
         //    "type": "extensions",
@@ -399,7 +399,7 @@
         //      }
         //    }
         //  }
-        //]
+        ]
       },
      //ADFS VM - OS Only, no ADFS component installed
     {
@@ -443,34 +443,34 @@
           ]
         }
       }
-      //"resources": [
-      //  // Join domain - Json AD Domain Extension
-      //  {
-      //    "comments": "Join domain - JsonADDomainExtension",
-      //    "apiVersion": "2015-06-15",
-      //    "type": "extensions",
-      //    "name": "joindomain",
-      //    "location": "[resourceGroup().location]",
-      //    "dependsOn": [
-      //      "[concat('Microsoft.Compute/virtualMachines/',variables('VMNames')[1])]",
-      //      "[concat('Microsoft.Compute/virtualMachines/', variables('VMNames')[4],'/extensions/DCConfig')]"
-      //    ],
-      //    "properties": {
-      //      "publisher": "Microsoft.Compute",
-      //      "type": "JsonADDomainExtension",
-      //      "typeHandlerVersion": "1.0",
-      //      "settings": {
-      //        "Name": "[variables('domainFQDN')]",
-      //        "User": "[concat(variables('domainFQDN'), '\\', parameters('AdminUserName'))]",
-      //        "Restart": "true",
-      //        "Options": "[variables('domainJoinOptions')]"
-      //      },
-      //      "protectedsettings": {
-      //        "Password": "[parameters('AdminPassword')]"
-      //      }
-      //    }
-      //  }
-      //]
+      "resources": [
+        // Join domain - Json AD Domain Extension
+        {
+          "comments": "Join domain - JsonADDomainExtension",
+          "apiVersion": "2015-06-15",
+          "type": "extensions",
+          "name": "joindomain",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/',variables('VMNames')[1])]",
+            "[concat('Microsoft.Compute/virtualMachines/', variables('VMNames')[4],'/extensions/DCConfig')]"
+          ],
+          "properties": {
+            "publisher": "Microsoft.Compute",
+            "type": "JsonADDomainExtension",
+            "typeHandlerVersion": "1.0",
+            "settings": {
+              "Name": "[variables('domainFQDN')]",
+              "User": "[concat(variables('domainFQDN'), '\\', parameters('AdminUserName'))]",
+              "Restart": "true",
+              "Options": "[variables('domainJoinOptions')]"
+            },
+            "protectedsettings": {
+              "Password": "[parameters('AdminPassword')]"
+            }
+          }
+        }
+      ]
     },
      //WEB APPLICATION PROXY VMs - OS Only, no WAP component installed
     {
